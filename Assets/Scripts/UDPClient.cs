@@ -24,10 +24,13 @@ public class UDPClient : MonoBehaviour
             // converts the string to a byte array
 
             client.Send(sendBytes, sendBytes.Length);
+            // client sends a message
 
             IPEndPoint remoteEndPoint = new IPEndPoint(IPAddress.Any, 0);
 
-            byte[] receiveBytes = client.Receive(ref remoteEndPoint); // remoteEndPoint is the local host
+            byte[] receiveBytes = client.Receive(ref remoteEndPoint); 
+            // Receive blocks execution until it receives a message
+            // remoteEndPoint is the local host
 
             string receivedString = Encoding.ASCII.GetString(receiveBytes);
 
