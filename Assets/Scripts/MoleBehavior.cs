@@ -2,17 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyMe : MonoBehaviour
+public class MoleBehavior : MonoBehaviour
 {
     Collider col;
 
+    [HideInInspector]public Animator anim;
+    // Don't want to see animator component in the inspector
+
     void Start() {
+
+        anim = GetComponent<Animator>();
+        // Returns the component of type Animator if GameObject has one attached
+
         col = GetComponent<Collider>();
         // Returns the component of type Collider if the GameObject has one attached, null if it doesn't
         // Don't need to specify exact collider we're usimg
 
         col.enabled = false;
-        Debug.Log("why");
         // At start of program, want it to be not disabled (not updated)
     }
     public void DestroyObj() {
@@ -21,5 +27,11 @@ public class DestroyMe : MonoBehaviour
     public void SwitchCollider(int num) {
         col.enabled = (num == 0) ? false : true;
         // If num is not 0, then enable Collider col
+    }
+
+    // for hits/points later on
+    public void GotHit() {
+        // add points here
+
     }
 }

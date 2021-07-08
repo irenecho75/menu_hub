@@ -6,22 +6,32 @@ public class HoleBehavior : MonoBehaviour
 {
     public GameObject[] moles;
     // Start is called before the first frame update
+
+    public bool hasMole;
+
     void Start()
     {
-        Invoke("Spawn", Random.Range(3f, 7f));
+        if (!hasMole) {
+            Invoke("Spawn", Random.Range(0f, 7f));
+        }
     }
 
     // Update is called once per frame
     void Spawn() {
-        int num = Random.Range(0, moles.Length); // returns an int in the range 0 - length of array (inclusive)
 
-        GameObject mole = Instantiate(moles[num], transform.position, Quaternion.identity) as GameObject;
-        // Instantiate returns an object, so we typecast as GameObject
-        // transform.position (Vec3) will be taken from the hole where the script is sitting on
-        // Quaternions are used to represent rotations, and identity means no rotation
+        if (!hasMole) {
+            int num = Random.Range(0, moles.Length); // returns an int in the range 0 - length of array (inclusive)
 
+            GameObject mole = Instantiate(moles[num], transform.position, Quaternion.identity) as GameObject;
+            // Instantiate returns an object, so we typecast as GameObject
+            // transform.position (Vec3) will be taken from the hole where the script is sitting on
+            // Quaternions are used to represent rotations, and identity means no rotation
 
-        Invoke("Spawn", Random.Range(3f, 7f));
-        // Instantiates another mole GameObject after 3 - 7 seconds
+            mole.transform.parent = gameObject.transform;
+            hasMole = true;
+
+        }
+        Invoke("Spawn", Random.Range(0f, 7f));
+        // Attemps to instantiate another mole GameObject after 3 - 7 seconds
     }
 }

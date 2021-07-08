@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 2226395228661431716}
   m_Layer: 0
   m_Name: HatMole
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -275,7 +275,7 @@ Transform:
   m_GameObject: {fileID: 2990086140368199883}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_Children:
   - {fileID: 2990086141339159272}
   - {fileID: 2990086141440237047}
@@ -313,6 +313,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd785a4c19dd448c19f36b39b0ab92c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moleLife: 2
+  anim: {fileID: 0}
 --- !u!136 &-9118405825407853178
 CapsuleCollider:
   m_ObjectHideFlags: 0
