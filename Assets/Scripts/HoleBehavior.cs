@@ -27,6 +27,9 @@ public class HoleBehavior : MonoBehaviour
             // transform.position (Vec3) will be taken from the hole where the script is sitting on
             // Quaternions are used to represent rotations, and identity means no rotation
 
+            mole.GetComponent<MoleBehavior>().myParent = this.gameObject;
+            // Wherever this hole sits on, gets set to be the mole's myParent
+
             mole.transform.parent = gameObject.transform;
             hasMole = true;
 

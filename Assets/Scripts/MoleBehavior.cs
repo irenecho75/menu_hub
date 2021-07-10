@@ -6,6 +6,11 @@ public class MoleBehavior : MonoBehaviour
 {
     Collider col;
 
+    public int score = 1;
+
+    [HideInInspector]public GameObject myParent;
+    // Like storing a reference to the hole GameObject associated with the current mole GameObject
+
     [HideInInspector]public Animator anim;
     // Don't want to see animator component in the inspector
 
@@ -22,6 +27,7 @@ public class MoleBehavior : MonoBehaviour
         // At start of program, want it to be not disabled (not updated)
     }
     public void DestroyObj() {
+        myParent.GetComponent<HoleBehavior>().hasMole = false;
         Destroy(gameObject);
     } 
     public void SwitchCollider(int num) {
@@ -32,6 +38,6 @@ public class MoleBehavior : MonoBehaviour
     // for hits/points later on
     public void GotHit() {
         // add points here
-
+        GameManager.AddScore(score);
     }
 }

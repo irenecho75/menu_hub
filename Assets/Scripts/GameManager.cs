@@ -5,36 +5,23 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
-    // Update is called once per frame
-    void Update()
-    {
-        // Left mouse button is 0, right button is 1
-        if (Input.GetMouseButtonDown(0)) {
+    static int score;
+    // Static variable is shared between all instances of the script, can access using
+    // GameManager.score in any other class
 
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            // Returns a ray going from the camera to the mouse's position
-
-            RaycastHit hit;
-            // Structure used to get information back from a raycast, returned
-            // when ray hits an objects during a raycast
-
-            if (Physics.Raycast(ray, out hit)) {
-            // Returns true if the ray intersects with a collider, else false
-            // "out" passes hit by reference
-
-                if (hit.collider.tag == "Mole") {
-
-                    MoleBehavior mole = hit.collider.gameObject.GetComponent<MoleBehavior>();
-                    // Want to get the component MoleBehavior from the object that was hit
-                    mole.SwitchCollider(0);
-                    // Turns the collider off
-
-                    mole.anim.SetTrigger("hit");
-                    // Triggers the GetHit animation
-                    
-                    Debug.Log(hit.collider.gameObject + " got hit!");
-                }
-            }
+    public static void AddScore(int amount) {
+        if (amount < 0 && score > 0) {
+            score+=amount;
+            Debug.Log("Didn't hit a mole!");
+            UIManager.instance.UpdateUI();
         }
+        else if (amount > 0) {
+            score+=amount;
+            UIManager.instance.UpdateUI();
+        }
+    }
+
+    public static int ReadScore() {
+        return score;
     }
 }
