@@ -21,10 +21,10 @@ public class AudioManager : MonoBehaviour
     public void Play(string name) {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         // Finds the sound that matches the string name in the array sounds
-            if (s == null) {
-                Debug.LogWarning("Sound: " + name + " not found!");
-                return;
-            }
+        if (s == null) {
+            Debug.LogWarning("Sound: " + name + " not found!");
+            return;
+        }
         s.source.Play();
     }   
 }
