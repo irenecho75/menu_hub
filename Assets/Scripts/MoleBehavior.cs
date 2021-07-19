@@ -35,9 +35,15 @@ public class MoleBehavior : MonoBehaviour
         // If num is not 0, then enable Collider col
     }
 
-    // for hits/points later on
     public void GotHit() {
         // add points here
+
+        int num = Random.Range(1, 4);
+        // Random number from 1-3
+
+        string soundName = "MoleHit" + num;
+        FindObjectOfType<AudioManager>().Play(soundName);
+
         GameManager.AddScore(score);
     }
 }
