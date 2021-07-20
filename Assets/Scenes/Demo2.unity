@@ -723,10 +723,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: MoleHit
+  - name: MoleHit1
     clip: {fileID: 8300000, guid: ed4e571f7330b4cf19b0a2583e4df3e6, type: 3}
     volume: 0.75
-    pitch: 0.5
+    pitch: 1
+    source: {fileID: 0}
+  - name: MoleHit2
+    clip: {fileID: 8300000, guid: 6c79a49dc4cb64e67b01962a80a56157, type: 3}
+    volume: 0.75
+    pitch: 1
+    source: {fileID: 0}
+  - name: MoleHit3
+    clip: {fileID: 8300000, guid: 92023dae58a4442b4b8731bdf1a84f7f, type: 3}
+    volume: 0.75
+    pitch: 1
     source: {fileID: 0}
 --- !u!4 &903280712
 Transform:

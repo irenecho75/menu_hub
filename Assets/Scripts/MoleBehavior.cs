@@ -14,7 +14,12 @@ public class MoleBehavior : MonoBehaviour
     [HideInInspector]public Animator anim;
     // Don't want to see animator component in the inspector
 
+    private AudioSource myAudioSource;
+
+
     void Start() {
+
+        myAudioSource = gameObject.GetComponent<AudioSource>();
 
         anim = GetComponent<Animator>();
         // Returns the component of type Animator if GameObject has one attached
@@ -42,7 +47,10 @@ public class MoleBehavior : MonoBehaviour
         // Random number from 1-3
 
         string soundName = "MoleHit" + num;
-        FindObjectOfType<AudioManager>().Play(soundName);
+        //FindObjectOfType<AudioManager>().Play(soundName);
+        FindObjectOfType<AudioManager>().PlayMoleSound(myAudioSource);
+
+        //AudioManager.PlayMoleSound(myAudioSource);
 
         GameManager.AddScore(score);
     }
