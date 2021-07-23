@@ -738,6 +738,7 @@ MonoBehaviour:
     volume: 0.75
     pitch: 1
     source: {fileID: 0}
+  clip: {fileID: 8300000, guid: ed4e571f7330b4cf19b0a2583e4df3e6, type: 3}
 --- !u!4 &903280712
 Transform:
   m_ObjectHideFlags: 0
